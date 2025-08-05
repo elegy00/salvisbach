@@ -45,6 +45,10 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Create CNAME file
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: echo "schlapberg.ch" > build/client/CNAME
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
