@@ -47,7 +47,7 @@ jobs:
 
       - name: Create CNAME file
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: echo "schlapberg.ch" > build/client/CNAME
+        run: echo "${{ vars.HOSTNAME_GH_PAGE }}" > build/client/CNAME
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
