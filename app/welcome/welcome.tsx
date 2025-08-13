@@ -1,9 +1,11 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
-export function Welcome() {
+export function Welcome({ className }: { className: string }) {
   return (
-    <main className="flex items-center justify-center pt-16 pb-4">
+    <main
+      className={`flex items-center justify-center pt-16 pb-4 bg-amber-300 ${className}`}
+    >
       <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
         <header className="flex flex-col items-center gap-9">
           <div className="w-[500px] max-w-[100vw] p-4">
