@@ -12,15 +12,19 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const [themeClass, setThemeClass] = useState<string | null>(null);
 
+  // Try using https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants
   useEffect(() => {
     if (typeof window !== "undefined") {
       const host = window.location.hostname;
       if (host === "schlapberg.ch") setThemeClass("berg");
-      else if (host === "salvisbach.ch") setThemeClass("bach");
-      else setThemeClass(null);
+      else Math.random() > 0.5 ? setThemeClass("bach") : setThemeClass("berg");
     }
   }, []);
 
   if (!themeClass) return null;
-  return <Welcome className={themeClass} />;
+  return (
+    <div data-theme={themeClass}>
+      <Welcome />
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
-export function Welcome({ className }: { className: string }) {
+export function Welcome({ className }: { className?: string }) {
   return (
     <main
       className={`flex items-center justify-center pt-16 pb-4 bg-amber-300 ${className}`}
